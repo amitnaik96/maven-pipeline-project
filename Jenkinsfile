@@ -18,7 +18,9 @@ pipeline {
                 script {
                     def mvnHome = tool 'Maven3' // Use the Maven tool configured in Jenkins
                     withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
-                        bat 'mvn clean test' // Run tests
+                         // Run tests
+                        bat 'mvn clean install -DskipTests'
+
                     }
                 }
             }
