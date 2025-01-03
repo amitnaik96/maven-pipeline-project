@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONAR_SCANNER_PATH = 'C:\\Program Files\\sonar-scanner-6.2.1.4610-windows-x64\\bin'
-          JAVA_HOME = 'C:\Program Files\Java\jdk-17'
+          JAVA_HOME = 'C:/Program Files/Java/jdk-17'
     }
 
     stages {
