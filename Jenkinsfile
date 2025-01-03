@@ -50,7 +50,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             environment {
-                SONAR_TOKEN = credentials('java-jenkins-pipeline-project-task') // Ensure the correct credential ID
+                SONAR_TOKEN = credentials('maven-jenkins-pipeline') // Ensure the correct credential ID
             }
             steps {
                 script {
@@ -58,9 +58,10 @@ pipeline {
                     withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
                         bat '''
                             mvn clean verify sonar:sonar \
-                            -Dsonar.projectKey=java-jenkins-pipeline-project2 \
-                            -Dsonar.projectName='java-jenkins-pipeline-project2' \
-                            -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.projectKey=maven-jenkins-pipeline \
+  -Dsonar.projectName='maven-jenkins-pipeline' \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.token=sqp_4c571179a9fa0eec16b2914a4e4c21ac15fadfb5
                             -Dsonar.login=%SONAR_TOKEN%
                         '''
                     }
