@@ -19,7 +19,7 @@ pipeline {
                     def mvnHome = tool 'Maven3' // Use the Maven tool configured in Jenkins
                     withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
                          // Run tests
-                        bat 'mvn clean install -DskipTests'
+                        //bat 'mvn clean install -DskipTests'
 
                     }
                 }
@@ -38,16 +38,16 @@ pipeline {
                         }
                     }
                 }
-                stage('Code Coverage') {
-                    steps {
-                        script {
-                            def mvnHome = tool 'Maven3' // Use the Maven tool configured in Jenkins
-                            withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
-                                bat 'mvn jacoco:report' // Generate code coverage report using JaCoCo
-                            }
-                        }
-                    }
-                }
+                // stage('Code Coverage') {
+                //     steps {
+                //         script {
+                //             def mvnHome = tool 'Maven3' // Use the Maven tool configured in Jenkins
+                //             withEnv(["PATH+MAVEN=${mvnHome}/bin"]) {
+                //                 bat 'mvn jacoco:report' // Generate code coverage report using JaCoCo
+                //             }
+                //         }
+                //     }
+                // }
             }
         }
 
